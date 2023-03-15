@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Mesto</title>
+</head>
+
+<body class="page">
+    <div class="page__container">
+        <header class="header">
+            <img class="header__logo" src="./image/header-logo.svg" alt="Место" />
+        </header>
+        <main class="content">
+            <section class="profile">
+                <img class="profile__avatar" src="./image/profile-avatar.jpg" alt="Аватарка" />
+                <div class="profile__info">
+                    <h1 class="profile__title">Жак-Ив Кусто</h1>
+                    <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
+                    <p class="profile__subtitle">Исследователь океана</p>
+                </div>
+                <button class="profile__add-button"></button>
+            </section>
+            <section class="elements">
+                <ul class="elements__container">
+                    <li class="element">
+                        <img class="element__photo" src="./image/element__photo-bridge.jpg" alt="Мост" />
+                        <div class="element__group">
+                            <p class="element__subtitle">Мост</p>
+                            <button class="element__like"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__photo" src="./image/element__photo-city.jpg" alt="Город" />
+                        <div class="element__group">
+                            <p class="element__subtitle">Город</p>
+                            <button class="element__like"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__photo" src="./image/element__photo-winter.jpg" alt="Зима+Горы" />
+                        <div class="element__group">
+                            <p class="element__subtitle">Зима+Горы</p>
+                            <button class="element__like"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__photo" src="./image/element__photo-mountain.jpg" alt="Скала" />
+                        <div class="element__group">
+                            <p class="element__subtitle">Скала</p>
+                            <button class="element__like"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__photo" src="./image/element__photo-water.jpg" alt="Водоем" />
+                        <div class="element__group">
+                            <p class="element__subtitle">Водоем</p>
+                            <button class="element__like"></button>
+                        </div>
+                    </li>
+                    <li class="element">
+                        <img class="element__photo" src="./image/element__photo-frozen-lake.jpg"
+                            alt="Замерзшее озеро на фоне гор" />
+                        <div class="element__group">
+                            <p class="element__subtitle">Замерзшее озеро на фоне гор</p>
+                            <button class="element__like"></button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__copyright">© 2023 Mesto Russia</p>
+        </footer>
+        <div class="popup">
+            <div class="popup__container">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="popup__form" name="popupForm">
+                    <input class="popup__input" required type="text" name="popup-name" placeholder="Имя" />
+                    <input class="popup__input" required type="text" name="popup-job" placeholder="О себе" />
+                    <button class="popup__button" type="submit">Сохранить</button>
+                </form>
+                <button class="popup__close" type="button" aria-label="Закрыть окно редактирования профиля"></button>
+            </div>
+        </div>
+    </div>
+    <script src="./scripts/script.js"></script>
+</body>
+
+</html>
