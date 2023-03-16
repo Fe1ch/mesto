@@ -22,51 +22,51 @@
                     <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
                     <p class="profile__subtitle">Исследователь океана</p>
                 </div>
-                <button class="profile__add-button"></button>
+                <button class="profile__add-button" type="button"></button>
             </section>
             <section class="elements">
                 <ul class="elements__container">
                     <li class="element">
                         <img class="element__photo" src="./image/element__photo-bridge.jpg" alt="Мост" />
                         <div class="element__group">
-                            <p class="element__subtitle">Мост</p>
-                            <button class="element__like"></button>
+                            <h2 class="element__subtitle">Мост</h2>
+                            <button class="element__like" type="button"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__photo" src="./image/element__photo-city.jpg" alt="Город" />
                         <div class="element__group">
-                            <p class="element__subtitle">Город</p>
-                            <button class="element__like"></button>
+                            <h2 class="element__subtitle">Город</h2>
+                            <button class="element__like" type="button"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__photo" src="./image/element__photo-winter.jpg" alt="Зима+Горы" />
                         <div class="element__group">
-                            <p class="element__subtitle">Зима+Горы</p>
-                            <button class="element__like"></button>
+                            <h2 class="element__subtitle">Зима+Горы</h2>
+                            <button class="element__like" type="button"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__photo" src="./image/element__photo-mountain.jpg" alt="Скала" />
                         <div class="element__group">
-                            <p class="element__subtitle">Скала</p>
-                            <button class="element__like"></button>
+                            <h2 class="element__subtitle">Скала</h2>
+                            <button class="element__like" type="button"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__photo" src="./image/element__photo-water.jpg" alt="Водоем" />
                         <div class="element__group">
-                            <p class="element__subtitle">Водоем</p>
-                            <button class="element__like"></button>
+                            <h2 class="element__subtitle">Водоем</h2>
+                            <button class="element__like" type="button"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img class="element__photo" src="./image/element__photo-frozen-lake.jpg"
                             alt="Замерзшее озеро на фоне гор" />
                         <div class="element__group">
-                            <p class="element__subtitle">Замерзшее озеро на фоне гор</p>
-                            <button class="element__like"></button>
+                            <h2 class="element__subtitle">Замерзшее озеро на фоне гор</h2>
+                            <button class="element__like" type="button"></button>
                         </div>
                     </li>
                 </ul>
@@ -79,8 +79,10 @@
             <div class="popup__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form class="popup__form" name="popupForm">
-                    <input class="popup__input" required type="text" name="popup-name" placeholder="Имя" />
-                    <input class="popup__input" required type="text" name="popup-job" placeholder="О себе" />
+                    <input class="popup__input popup__input_text_name" required type="text" name="popup-name"
+                        placeholder="Имя" />
+                    <input class="popup__input popup__input_text_job" required type="text" name="popup-job"
+                        placeholder="О себе" />
                     <button class="popup__button" type="submit">Сохранить</button>
                 </form>
                 <button class="popup__close" type="button" aria-label="Закрыть окно редактирования профиля"></button>

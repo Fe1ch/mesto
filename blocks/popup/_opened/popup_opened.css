@@ -3,6 +3,3 @@
   opacity: 1;
   transition: opacity .7s ease, visibility .7s ease;
 }
-
-/* Вычетал из 5 работы в Notion , чтоб потом не менять) если посчитаете за ошибку ,
-исправлю на dipslay:none;если зачтёте комментрарий удалю)*/

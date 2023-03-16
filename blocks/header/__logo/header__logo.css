@@ -4,16 +4,16 @@
   margin-bottom: 41px;
 }
 
-@media screen and (max-width: 910px) {
+@media screen and (max-width: 917px) {
   .header__logo {
     padding-left: 27px;
     margin-bottom: 31px;
   }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 618px) {
   .header__logo {
-    width: 103px;
+    width: 103.74px;
     height: 24px;
   }
 }

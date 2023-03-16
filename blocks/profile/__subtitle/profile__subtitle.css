@@ -9,12 +9,18 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  grid-column: -3/-1;
+  max-width: 336px;
 }
 
-@media screen and (max-width: 890px) {
+@media screen and (max-width: 917px) {
   .profile__subtitle {
     font-size: 14px;
     line-height: 17px;
+  }
+}
+
+@media screen and (max-width: 618px) {
+  .profile__subtitle {
+    max-width: 245px;
   }
 }
