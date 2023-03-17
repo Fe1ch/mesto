@@ -17,6 +17,5 @@
 
 .popup__input:focus {
   outline: none;
-  /* border: 2px solid #3c5896; */
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
 }
