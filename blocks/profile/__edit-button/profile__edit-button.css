@@ -11,7 +11,7 @@
   border: 1px solid #ffffff;
   align-self: center;
   cursor: pointer;
-  outline: none;
+  outline: 0;
 }
 
 @media screen and (max-width: 917px) {
