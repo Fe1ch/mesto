@@ -39,16 +39,16 @@ const profileSubtitle = document.querySelector('.profile__subtitle');
 const popupProfile = document.querySelector('.popup_type_edit');
 const popupCloseProfile = popupProfile.querySelector(".popup__close");
 const formProfile = popupProfile.querySelector('.popup__form');
-const profileNameInput = popupProfile.querySelector('.popup__input_type_profile_name');
-const profileJobInput = popupProfile.querySelector('.popup__input_type_profile_job');
+const profileNameInput = popupProfile.querySelector('.popup__input_type_profile-name');
+const profileJobInput = popupProfile.querySelector('.popup__input_type_profile-job');
 
 
 // Элементы попапа для добавления карточки
 const popupNewCard = document.querySelector('.popup_type_new-card');
 const popupCloseNewCard = popupNewCard.querySelector(".popup__close");
 const formNewCard = popupNewCard.querySelector('.popup__form');
-const formInputCardName = popupNewCard.querySelector('.popup__input_type_card_name');
-const formInputCardLink = popupNewCard.querySelector('.popup__input_type_card_link');
+const formInputCardName = popupNewCard.querySelector('.popup__input_type_card-name');
+const formInputCardLink = popupNewCard.querySelector('.popup__input_type_card-link');
 
 
 // Элементы попапа для увелечения картинки в карточке
