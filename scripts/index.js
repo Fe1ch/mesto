@@ -1,29 +1,3 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
 // Контейнер для добавления карточек
 const elementsContainer = document.querySelector('.elements__container');
 
@@ -59,13 +33,13 @@ const subtitleImage = popupImage.querySelector('.popup__photo-subtitle');
 
 
 // Функция открытия ПОПАПА
-function showPopup(evt) {
-  evt.classList.add('popup_opened');
+function showPopup(openPopup) {
+  openPopup.classList.add('popup_opened');
 };
 
 // Функция закрытия ПОПАПА
-function closePopup(evt) {
-  evt.classList.remove('popup_opened');
+function closePopup(closePopup) {
+  closePopup.classList.remove('popup_opened');
 };
 
 // Функия редактирования ПРОФИЛЯ
@@ -90,7 +64,7 @@ popupCloseProfile.addEventListener('click', () => closePopup(popupProfile));
 formProfile.addEventListener('submit', handleFormSubmit);
 
 // Функция для создания карточки
-function createCard(evt) {
+function createCard(item) {
   const cardTemplate = document.querySelector('#element-template').content;
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
 
@@ -99,8 +73,9 @@ function createCard(evt) {
   const cardSubtitle = cardElement.querySelector('.element__subtitle');
   const cardLike = cardElement.querySelector('.element__like');
 
-  cardSubtitle.textContent = evt.name;
-  cardImg.src = evt.link;
+  cardSubtitle.textContent = item.name;
+  cardImg.src = item.link;
+  cardImg.alt = (`Фото ${item.name}`);
 
   // Обработчик события - лайк на карточке
   cardLike.addEventListener('click', function (evt) {
@@ -118,6 +93,7 @@ function createCard(evt) {
     showPopup(popupImage);
     subtitleImage.textContent = cardSubtitle.textContent;
     scalableImage.src = cardImg.src;
+    scalableImage.alt = cardImg.alt;
   });
 
   return cardElement;
