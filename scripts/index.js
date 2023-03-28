@@ -33,13 +33,13 @@ const subtitleImage = popupImage.querySelector('.popup__photo-subtitle');
 
 
 // Функция открытия ПОПАПА
-function showPopup(openPopup) {
-  openPopup.classList.add('popup_opened');
+function showPopup(typePopup) {
+  typePopup.classList.add('popup_opened');
 };
 
 // Функция закрытия ПОПАПА
-function closePopup(closePopup) {
-  closePopup.classList.remove('popup_opened');
+function closePopup(typePopup) {
+  typePopup.classList.remove('popup_opened');
 };
 
 // Функия редактирования ПРОФИЛЯ
