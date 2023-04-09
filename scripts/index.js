@@ -66,6 +66,9 @@ editButton.addEventListener('click', () => {
   showPopup(popupProfile);
   profileNameInput.value = profileTitle.textContent;
   profileJobInput.value = profileSubtitle.textContent;
+  const profileButton = popupProfile.querySelector('.popup__button');
+  profileButton.classList.add('popup__button_disabled');
+  profileButton.setAttribute("disabled", true);
 });
 
 // Обработчик событий для закрытия попапа(Редактировать профиль)
@@ -147,7 +150,10 @@ initialCards.forEach(function (item) {
 });
 
 // Обработчик событий для открытия попапа(Добавления карточек)
-addButton.addEventListener('click', () => showPopup(popupNewCard));
+addButton.addEventListener('click', () => {
+  showPopup(popupNewCard);
+  enableValidation(validationConfig);
+});
 
 // Обработчик событий для удаления попапа(Добавления карточек)
 popupCloseNewCard.addEventListener('click', () => closePopup(popupNewCard));
@@ -158,22 +164,20 @@ popupCloseImage.addEventListener('click', () => closePopup(popupImage));
 
 //Функция для закрытия попапа кликом на оверлей
 function handlePopupClick(evt) {
-  const popupOpened = document.querySelector('.popup_opened')
   if (evt.target.classList.contains('popup')) {
-    closePopup(popupOpened);
+    closePopup(evt.target);
   }
 };
 
 // Обработчики событий для закрытия попапа по клику на оверлей
-popupProfile.addEventListener('click', handlePopupClick);
-popupNewCard.addEventListener('click', handlePopupClick);
-popupImage.addEventListener('click', handlePopupClick);
+popupProfile.addEventListener('mousedown', handlePopupClick);
+popupNewCard.addEventListener('mousedown', handlePopupClick);
+popupImage.addEventListener('mousedown', handlePopupClick);
 
 //Функция для закрытия попапа на клавишу ESC
 function handlePopupEsc(evt) {
-  const popupOpened = document.querySelector('.popup_opened')
   if (evt.key === 'Escape') {
-    closePopup(popupOpened)
+    closePopup(document.querySelector('.popup_opened'));
   }
 };
 
