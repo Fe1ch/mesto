@@ -32,14 +32,25 @@ const scalableImage = popupImage.querySelector('.popup__photo');
 const subtitleImage = popupImage.querySelector('.popup__photo-subtitle');
 
 
+// Элементы попапа для изменения аватара
+const avatarImg = document.querySelector('.profile__avatar');
+const avatarEditButton = document.querySelector('.profile__avatar-edit');
+const popupAvatar = document.querySelector('.popup_type_avatar');
+const formAvatar = popupAvatar.querySelector('.popup__form');
+const popupCloseAvatar = popupAvatar.querySelector('.popup__close');
+const popupInputAvatarLink = popupAvatar.querySelector('.popup__input_type_avatar-link');
+
+
 // Функция открытия ПОПАПА
 function showPopup(typePopup) {
   typePopup.classList.add('popup_opened');
+  document.addEventListener('keydown', handlePopupEsc);
 };
 
 // Функция закрытия ПОПАПА
 function closePopup(typePopup) {
   typePopup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', handlePopupEsc);
 };
 
 // Функия редактирования ПРОФИЛЯ
@@ -73,14 +84,29 @@ function createCard(item) {
   const cardSubtitle = cardElement.querySelector('.element__subtitle');
   const cardLike = cardElement.querySelector('.element__like');
 
+  const cardCountLike = cardElement.querySelector('.element__count-like');
+
   cardSubtitle.textContent = item.name;
   cardImg.src = item.link;
-  cardImg.alt = (`Фото ${item.name}`);
+  cardImg.alt = item.name;
 
   // Обработчик события - лайк на карточке
-  cardLike.addEventListener('click', function (evt) {
-    evt.target.classList.toggle('element__like_active');
+  // cardLike.addEventListener('click', function (evt) {
+  //   evt.target.classList.toggle('element__like_active'), () => {
+  //   }
+  // });
+  cardLike.addEventListener('click', function (e) {
+    if (cardLike.classList.contains('element__like_active')) {
+      e.target.classList.toggle('element__like_active');
+      cardCountLike.textContent = 0 || '';
+    }
+    else {
+      cardCountLike.textContent++;
+      e.target.classList.toggle('element__like_active');
+    }
   });
+
+
 
   //Обработчик события удаление карточки
   cardDelete.addEventListener('click', function () {
@@ -93,7 +119,7 @@ function createCard(item) {
     showPopup(popupImage);
     subtitleImage.textContent = cardSubtitle.textContent;
     scalableImage.src = cardImg.src;
-    scalableImage.alt = cardImg.alt;
+    scalableImage.alt = cardSubtitle.textContent;
   });
 
   return cardElement;
@@ -130,19 +156,39 @@ popupCloseNewCard.addEventListener('click', () => closePopup(popupNewCard));
 popupCloseImage.addEventListener('click', () => closePopup(popupImage));
 
 
+//Функция для закрытия попапа кликом на оверлей
+function handlePopupClick(evt) {
+  const popupOpened = document.querySelector('.popup_opened')
+  if (evt.target.classList.contains('popup')) {
+    closePopup(popupOpened);
+  }
+};
 
+// Обработчики событий для закрытия попапа по клику на оверлей
+popupProfile.addEventListener('click', handlePopupClick);
+popupNewCard.addEventListener('click', handlePopupClick);
+popupImage.addEventListener('click', handlePopupClick);
 
-// const cardLikes = Array.from(document.querySelectorAll('.element__like'));
+//Функция для закрытия попапа на клавишу ESC
+function handlePopupEsc(evt) {
+  const popupOpened = document.querySelector('.popup_opened')
+  if (evt.key === 'Escape') {
+    closePopup(popupOpened)
+  }
+};
 
-// cardLikes.forEach((element__like) => {
-//   element__like.addEventListener('click', () => {
-//     element__like.classList.toggle('element__like_active');
-//   });
-// });
-// console.log(cardLikes);
+// Обработчик для открытия попапа изменения аватарки профиля 
+avatarEditButton.addEventListener('click', () => showPopup(popupAvatar));
 
-// const cardLike = document.querySelector('.element__like');
-// function like() {
-//   cardLike.classList.toggle('element__like_active')
-// };
-// cardLike.addEventListener('click', like);
+// Обработчик для закрытия попапа изменения аватарки профиля
+popupCloseAvatar.addEventListener('click', () => closePopup(popupAvatar));
+
+// Функция для измения Аватарки профиля
+function handleFormAvatar(evt) {
+  evt.preventDefault();
+  avatarImg.src = popupInputAvatarLink.value;
+  formAvatar.reset();
+  closePopup(popupAvatar);
+};
+// Обработчик для изменения Аватарки профиля
+formAvatar.addEventListener('submit', handleFormAvatar);

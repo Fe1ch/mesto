@@ -12,6 +12,7 @@
   outline: 0;
   grid-column: 2/3;
   margin-top: 8px;
+  transition: all 0.3s ease;
 }
 
 @media screen and (max-width: 917px) {
@@ -31,4 +32,5 @@
 
 .profile__edit-button:hover {
   opacity: 0.6;
+  transform: scale(1.1);
 }
