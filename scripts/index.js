@@ -64,11 +64,9 @@ function handleFormSubmit(evt) {
 // Обработчик событий для открытия попапа(Редактировать профиль)
 editButton.addEventListener('click', () => {
   showPopup(popupProfile);
+  disabledButton();
   profileNameInput.value = profileTitle.textContent;
   profileJobInput.value = profileSubtitle.textContent;
-  const profileButton = popupProfile.querySelector('.popup__button');
-  profileButton.classList.add('popup__button_disabled');
-  profileButton.setAttribute("disabled", true);
 });
 
 // Обработчик событий для закрытия попапа(Редактировать профиль)
@@ -76,6 +74,15 @@ popupCloseProfile.addEventListener('click', () => closePopup(popupProfile));
 
 // Обрыботчик событий для сохренеия данных попапа (Редактировать профиль)
 formProfile.addEventListener('submit', handleFormSubmit);
+
+
+function disabledButton() {
+  const buttons = document.querySelectorAll('.popup__button');
+  buttons.forEach((button) => {
+    button.classList.add('popup__button_disabled');
+    button.setAttribute("disabled", true);
+  })
+};
 
 // Функция для создания карточки
 function createCard(item) {
@@ -152,7 +159,7 @@ initialCards.forEach(function (item) {
 // Обработчик событий для открытия попапа(Добавления карточек)
 addButton.addEventListener('click', () => {
   showPopup(popupNewCard);
-  enableValidation(validationConfig);
+  disabledButton();
 });
 
 // Обработчик событий для удаления попапа(Добавления карточек)
