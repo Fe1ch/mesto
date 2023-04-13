@@ -40,7 +40,7 @@ const formAvatar = popupAvatar.querySelector('.popup__form');
 const popupCloseAvatar = popupAvatar.querySelector('.popup__close');
 const popupInputAvatarLink = popupAvatar.querySelector('.popup__input_type_avatar-link');
 
-
+// Найди проблемы в коде
 // Функция открытия ПОПАПА
 function showPopup(typePopup) {
   typePopup.classList.add('popup_opened');
