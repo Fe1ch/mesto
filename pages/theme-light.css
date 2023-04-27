@@ -7,7 +7,7 @@
 }
 
 .profile__edit-button {
-  background-image: url(../../../image/Edit__Button-black.svg);
+  background-image: url(../image/Edit__Button-black.svg);
   border: 1px solid #000;
   background-color: transparent;
 }
@@ -17,7 +17,7 @@
 }
 
 .profile__add-button {
-  background-image: url(../../../image/Add-Button-black.svg);
+  background-image: url(../image/Add-Button-black.svg);
   border: 2px solid #000;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .element__delete-icon {
-  background-image: url(../../../image/delete_icon.svg);
+  background-image: url(../image/delete_icon.svg);
   background-color: transparent;
 }
 
