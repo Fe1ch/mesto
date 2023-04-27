@@ -15,6 +15,7 @@ const popupCloseProfile = popupProfile.querySelector(".popup__close");
 const formProfile = popupProfile.querySelector('.popup__form');
 const profileNameInput = popupProfile.querySelector('.popup__input_type_profile-name');
 const profileJobInput = popupProfile.querySelector('.popup__input_type_profile-job');
+const submitButtonProfile = popupProfile.querySelector('.popup__button');
 
 
 // Элементы попапа для добавления карточки
@@ -23,6 +24,7 @@ const popupCloseNewCard = popupNewCard.querySelector(".popup__close");
 const formNewCard = popupNewCard.querySelector('.popup__form');
 const formInputCardName = popupNewCard.querySelector('.popup__input_type_card-name');
 const formInputCardLink = popupNewCard.querySelector('.popup__input_type_card-link');
+const submitButtonNewCard = popupNewCard.querySelector('.popup__button');
 
 
 // Элементы попапа для увелечения картинки в карточке
@@ -39,6 +41,7 @@ const popupAvatar = document.querySelector('.popup_type_avatar');
 const formAvatar = popupAvatar.querySelector('.popup__form');
 const popupCloseAvatar = popupAvatar.querySelector('.popup__close');
 const popupInputAvatarLink = popupAvatar.querySelector('.popup__input_type_avatar-link');
+const submitButtonAvatar = popupAvatar.querySelector('.popup__button');
 
 // Найди проблемы в коде
 // Функция открытия ПОПАПА
@@ -53,6 +56,14 @@ function closePopup(typePopup) {
   document.removeEventListener('keydown', handlePopupEsc);
 };
 
+
+// Функция на деактивацию кнопки Sumbit
+function disabledButton(button) {
+  button.classList.add('popup__button_disabled');
+  button.setAttribute('disabled', true);
+};
+
+
 // Функия редактирования ПРОФИЛЯ
 function handleFormSubmit(evt) {
   evt.preventDefault();
@@ -64,7 +75,7 @@ function handleFormSubmit(evt) {
 // Обработчик событий для открытия попапа(Редактировать профиль)
 editButton.addEventListener('click', () => {
   showPopup(popupProfile);
-  disabledButton();
+  disabledButton(submitButtonProfile);
   profileNameInput.value = profileTitle.textContent;
   profileJobInput.value = profileSubtitle.textContent;
 });
@@ -75,14 +86,6 @@ popupCloseProfile.addEventListener('click', () => closePopup(popupProfile));
 // Обрыботчик событий для сохренеия данных попапа (Редактировать профиль)
 formProfile.addEventListener('submit', handleFormSubmit);
 
-
-function disabledButton() {
-  const buttons = document.querySelectorAll('.popup__button');
-  buttons.forEach((button) => {
-    button.classList.add('popup__button_disabled');
-    button.setAttribute("disabled", true);
-  })
-};
 
 // Функция для создания карточки
 function createCard(item) {
@@ -100,7 +103,7 @@ function createCard(item) {
   cardImg.src = item.link;
   cardImg.alt = item.name;
 
-  // Обработчик события - лайк на карточке
+  // Обработчик события - лайк на карточке и счетчик
   // cardLike.addEventListener('click', function (evt) {
   //   evt.target.classList.toggle('element__like_active'), () => {
   //   }
@@ -159,7 +162,7 @@ initialCards.forEach(function (item) {
 // Обработчик событий для открытия попапа(Добавления карточек)
 addButton.addEventListener('click', () => {
   showPopup(popupNewCard);
-  disabledButton();
+  disabledButton(submitButtonNewCard);
 });
 
 // Обработчик событий для удаления попапа(Добавления карточек)
@@ -189,7 +192,10 @@ function handlePopupEsc(evt) {
 };
 
 // Обработчик для открытия попапа изменения аватарки профиля 
-avatarEditButton.addEventListener('click', () => showPopup(popupAvatar));
+avatarEditButton.addEventListener('click', () => {
+  showPopup(popupAvatar);
+  disabledButton(submitButtonAvatar);
+});
 
 // Обработчик для закрытия попапа изменения аватарки профиля
 popupCloseAvatar.addEventListener('click', () => closePopup(popupAvatar));
@@ -203,3 +209,13 @@ function handleFormAvatar(evt) {
 };
 // Обработчик для изменения Аватарки профиля
 formAvatar.addEventListener('submit', handleFormAvatar);
+
+
+
+
+const arr = [1, 4, 5, 9, 8];
+const newArr = arr.reduce((a, b) => {
+  return a + b;
+},)
+
+console.log(newArr);
