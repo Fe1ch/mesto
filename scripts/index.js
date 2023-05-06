@@ -5,13 +5,11 @@ import { FormValidator } from './FormValidator.js';
 // Контейнер для добавления карточек
 const elementsContainer = document.querySelector('.elements__container');
 
-
 // Элементы секции Профиля
 const addButton = document.querySelector('.profile__add-button')
 const editButton = document.querySelector('.profile__edit-button');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
-
 
 // Элементы попапа для редактирования профиля
 const popupProfile = document.querySelector('.popup_type_edit');
@@ -20,7 +18,6 @@ const formProfile = popupProfile.querySelector('.popup__form');
 const profileNameInput = popupProfile.querySelector('.popup__input_type_profile-name');
 const profileJobInput = popupProfile.querySelector('.popup__input_type_profile-job');
 
-
 // Элементы попапа для добавления карточки
 const popupNewCard = document.querySelector('.popup_type_new-card');
 const popupCloseNewCard = popupNewCard.querySelector(".popup__close");
@@ -28,13 +25,11 @@ const formNewCard = popupNewCard.querySelector('.popup__form_type_card');
 const formInputCardName = popupNewCard.querySelector('.popup__input_type_card-name');
 const formInputCardLink = popupNewCard.querySelector('.popup__input_type_card-link');
 
-
 // Элементы попапа для увелечения картинки в карточке
 const popupImage = document.querySelector('.popup_type_image');
 const popupCloseImage = popupImage.querySelector('.popup__close');
 const scalableImage = popupImage.querySelector('.popup__photo');
 const subtitleImage = popupImage.querySelector('.popup__photo-subtitle');
-
 
 // Элементы попапа для изменения аватара
 const avatarImg = document.querySelector('.profile__avatar');
@@ -43,7 +38,6 @@ const popupAvatar = document.querySelector('.popup_type_avatar');
 const formAvatar = popupAvatar.querySelector('.popup__form');
 const popupCloseAvatar = popupAvatar.querySelector('.popup__close');
 const popupInputAvatarLink = popupAvatar.querySelector('.popup__input_type_avatar-link');
-
 
 // Переменные которые принимают класс FormValidator
 //  с конфигом и самой формой и дальше включают валидацию в кажой форме
@@ -96,7 +90,6 @@ function createCard(data) {
   return card.generateCard();
 };
 
-
 // Функция для открытия попапа картинки в карточке
 function handleCardClick(cardImage) {
   showPopup(popupImage);
@@ -137,7 +130,6 @@ popupCloseNewCard.addEventListener('click', () => closePopup(popupNewCard));
 
 // Обработчик событий для удаления попапа увелечния картинки в карточке
 popupCloseImage.addEventListener('click', () => closePopup(popupImage));
-
 
 //Функция для закрытия попапа кликом на оверлей
 function handlePopupClick(evt) {
