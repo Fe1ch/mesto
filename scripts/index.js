@@ -67,7 +67,7 @@ function closePopup(typePopup) {
 };
 
 // Функия редактирования ПРОФИЛЯ
-function handleFormSubmit(evt) {
+function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = profileNameInput.value;
   profileSubtitle.textContent = profileJobInput.value;
@@ -77,7 +77,7 @@ function handleFormSubmit(evt) {
 // Обработчик событий для открытия попапа(Редактировать профиль)
 editButton.addEventListener('click', () => {
   showPopup(popupProfile);
-  validationFormProfile._resetButtonState();
+  validationFormProfile.resetButtonState();
   profileNameInput.value = profileTitle.textContent;
   profileJobInput.value = profileSubtitle.textContent;
 });
@@ -86,7 +86,7 @@ editButton.addEventListener('click', () => {
 popupCloseProfile.addEventListener('click', () => closePopup(popupProfile));
 
 // Обрыботчик событий для сохренеия данных попапа (Редактировать профиль)
-formProfile.addEventListener('submit', handleFormSubmit);
+formProfile.addEventListener('submit', handleEditFormSubmit);
 
 
 // Функция для создания карточки
@@ -129,7 +129,7 @@ initialCards.forEach(function (item) {
 // Обработчик событий для открытия попапа(Добавления карточек)
 addButton.addEventListener('click', () => {
   showPopup(popupNewCard);
-  validationFormCard._resetButtonState();
+  validationFormCard.resetButtonState();
 });
 
 // Обработчик событий для удаления попапа(Добавления карточек)
@@ -161,7 +161,7 @@ function handlePopupEsc(evt) {
 // Обработчик для открытия попапа изменения аватарки профиля 
 avatarEditButton.addEventListener('click', () => {
   showPopup(popupAvatar);
-  validationFormAvatar._resetButtonState();
+  validationFormAvatar.resetButtonState();
 });
 
 // Обработчик для закрытия попапа изменения аватарки профиля
