@@ -39,11 +39,11 @@ export class Card {
   }
 
   _deleteCard() {
-    this.closest('.element').remove();
+    this._element.remove();
   }
   _setEventListeners() {
     this._likeElement.addEventListener('click', this._likeCard);
-    this._deleteButtonElement.addEventListener('click', this._deleteCard);
+    this._deleteButtonElement.addEventListener('click', () => this._deleteCard());
     this._photoElement.addEventListener('click', () => {
       this._handleCardClick(this._name, this._link);
     });

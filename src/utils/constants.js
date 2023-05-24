@@ -23,7 +23,6 @@ export const popupImage = document.querySelector('.popup_type_image');
 // Элементы попапа для изменения аватара
 export const popupAvatar = document.querySelector('.popup_type_avatar');
 export const formAvatar = popupAvatar.querySelector('.popup__form');
-export const popupInputAvatarLink = popupAvatar.querySelector('.popup__input_type_avatar-link');
 
-export const avatarImg = document.querySelector('.profile__avatar');
+export const profileAvatar = document.querySelector('.profile__avatar');
 export const avatarEditButton = document.querySelector('.profile__avatar-edit');

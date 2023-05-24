@@ -1,6 +1,5 @@
 export class FormValidator {
   constructor(config, form) {
-    this._formSelector = config.formSelector;
     this._inputSelector = config.inputSelector;
     this._submitButtonSelector = config.submitButtonSelector;
     this._inactiveButtonClass = config.inactiveButtonClass;
@@ -33,7 +32,7 @@ export class FormValidator {
     })
   };
   // Метод для выкл кнопки при повторном открытие submit в форме
-  resetButtonState() {
+  resetValidationState() {
     this._toggleButtonState();
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);

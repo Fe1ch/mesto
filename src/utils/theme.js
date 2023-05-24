@@ -3,7 +3,7 @@ export const switcherIndicator = document.querySelector('.header__indicator');
 const switcherIcon = document.querySelector('.header__icon');
 
 
-export function switcher() {
+export function switchTheme() {
   switcherIndicator.classList.toggle('header__indicator_active');
   switcherContainerTheme.classList.toggle('header__container_active');
   switcherIcon.classList.toggle('header__icon_active');

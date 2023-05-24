@@ -6,7 +6,7 @@ import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
 import { UserInfo } from '../components/UserInfo.js';
 import { initialCards, validationConfig } from '../utils/initial-cards.js';
-import { switcherIndicator, switcher } from '../utils/theme.js';
+import { switcherIndicator, switchTheme } from '../utils/theme.js';
 import {
   elementsContainer,
   addButton,
@@ -20,11 +20,10 @@ import {
   popupNewCard,
   formNewCard,
   popupImage,
-  avatarImg,
+  profileAvatar,
   avatarEditButton,
   popupAvatar,
   formAvatar,
-  popupInputAvatarLink
 } from '../utils/constants.js';
 
 // Переменные которые принимают класс FormValidator
@@ -48,84 +47,76 @@ function createCard(item) {
       popupWithImage.open(name, link);
     }
   }, '#element-template');
-  const cardElement = card.generateCard();
 
-  return cardElement;
+  return card.generateCard();
 };
 
 // Перебириаем массив (объектов) для добавления карточек на старницу и вкл метода рендер 
 const cardsContainer = new Section({
-  items: initialCards,
   renderer: (item) => {
     cardsContainer.addItem(createCard(item))
   }
 }, elementsContainer);
-cardsContainer.renderItems();
+cardsContainer.renderItems(initialCards);
 
 // Принимаем класс о информации профиля 
 const userInfo = new UserInfo({
-  name: profileTitle,
-  job: profileSubtitle
+  selectorUserName: profileTitle,
+  selectorUserJob: profileSubtitle,
+  selectorUserAvatar: profileAvatar
 });
 
 //Принимаем класс попапа формы профиля и вкл обработчики  
 const popupProfileForm = new PopupWithForm(popupProfile, {
-  handleFormSubmit: (input) => {
-    const data = {
-      name: input['input-name'],
-      job: input['input-job']
-    }
-    userInfo.setUserInfo(data);
+  handleFormSubmit: (data) => {
+    userInfo.setUserInfo(data)
   }
 })
 popupProfileForm.setEventListeners();
 
 // Вешаем обработчик на кнопку чтоб открыть попап профиля 
 editButton.addEventListener('click', () => {
-  validationFormProfile.resetButtonState();
+  validationFormProfile.resetValidationState();
   popupProfileForm.open();
-  profileNameInput.value = userInfo.getUserInfo().name;
-  profileJobInput.value = userInfo.getUserInfo().job;
+  const data = userInfo.getUserInfo()
+  profileNameInput.value = data.name;
+  profileJobInput.value = data.job;
 })
 //Принимаем класс попапа формы добавления карточки  и вкл обработчики 
 const popupNewCardForm = new PopupWithForm(popupNewCard, {
-  handleFormSubmit: (input) => {
-    const data = {
-      name: input['input-card-name'],
-      link: input['input-card-link']
-    }
-    cardsContainer.newAddItem(createCard(data))
+  handleFormSubmit: (data) => {
+    cardsContainer.addNewItem(createCard(data))
   }
 })
 popupNewCardForm.setEventListeners();
 
 // Вешаем обработчик на кнопку чтоб открыть попап добавления карточки  
 addButton.addEventListener('click', () => {
-  validationFormCard.resetButtonState();
+  validationFormCard.resetValidationState();
   popupNewCardForm.open()
 })
 
 //Принимаем класс попапа формы аватарки  и вкл обработчики 
 const popupAvatarForm = new PopupWithForm(popupAvatar, {
-  handleFormSubmit: () => {
-    avatarImg.src = popupInputAvatarLink.value;
+  handleFormSubmit: (data) => {
+    userInfo.setUserAvatar(data)
   }
 })
 popupAvatarForm.setEventListeners();
 
 // Вешаем обработчик на кнопку чтоб открыть попап аватара 
 avatarEditButton.addEventListener('click', () => {
-  validationFormAvatar.resetButtonState();
+  validationFormAvatar.resetValidationState();
   popupAvatarForm.open();
 });
 
 // Обработчики на режим смены темы и сохранения ее 
 switcherIndicator.addEventListener('click', () => {
-  switcher();
+  switchTheme();
 });
 document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'light') {
-    switcher();
+    switchTheme();
   }
 });
