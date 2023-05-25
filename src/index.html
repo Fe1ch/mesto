@@ -57,7 +57,7 @@
         <section class="popup popup_type_edit">
             <div class="popup__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="popup__form" name="popupFormProfile" novalidate>
+                <form class="popup__form popup__form_type_edit" name="popupFormProfile" novalidate>
                     <input id="input-name" class="popup__input popup__input_type_profile-name" required type="text"
                         name="name" placeholder="Имя" minlength="2" maxlength="40" />
                     <span class="popup__input-error" id="input-name-error"></span>
@@ -120,7 +120,7 @@
         <section class="popup popup_type_avatar">
             <div class="popup__container">
                 <h2 class="popup__title">Обновить аватар</h2>
-                <form class="popup__form" name="popupFormAvatar" novalidate>
+                <form class="popup__form popup__form_type_avatar" name="popupFormAvatar" novalidate>
                     <input id="input-avatar-link" class="popup__input  popup__input_type_avatar-link" required
                         type="url" name="avatarLink" placeholder="Добавьте ссылку на аватар" />
                     <span class="popup__input-error" id="input-avatar-link-error"></span>

@@ -8,22 +8,14 @@ import { UserInfo } from '../components/UserInfo.js';
 import { initialCards, validationConfig } from '../utils/initial-cards.js';
 import { switcherIndicator, switchTheme } from '../utils/theme.js';
 import {
-  elementsContainer,
   addButton,
   editButton,
-  profileTitle,
-  profileSubtitle,
-  popupProfile,
   formProfile,
   profileNameInput,
   profileJobInput,
-  popupNewCard,
   formNewCard,
-  popupImage,
-  profileAvatar,
   avatarEditButton,
-  popupAvatar,
-  formAvatar,
+  formAvatar
 } from '../utils/constants.js';
 
 // Переменные которые принимают класс FormValidator
@@ -36,7 +28,7 @@ const validationFormAvatar = new FormValidator(validationConfig, formAvatar);
 validationFormAvatar.enableValidation();
 
 //Принимает класс увелечения картинки в карточке и включает обработчики
-const popupWithImage = new PopupWithImage(popupImage);
+const popupWithImage = new PopupWithImage('.popup_type_image');
 popupWithImage.setEventListeners();
 
 // Функция для создания карточки
@@ -56,18 +48,18 @@ const cardsContainer = new Section({
   renderer: (item) => {
     cardsContainer.addItem(createCard(item))
   }
-}, elementsContainer);
+}, '.elements__container');
 cardsContainer.renderItems(initialCards);
 
 // Принимаем класс о информации профиля 
 const userInfo = new UserInfo({
-  selectorUserName: profileTitle,
-  selectorUserJob: profileSubtitle,
-  selectorUserAvatar: profileAvatar
+  selectorUserName: '.profile__title',
+  selectorUserJob: '.profile__subtitle',
+  selectorUserAvatar: '.profile__avatar'
 });
 
 //Принимаем класс попапа формы профиля и вкл обработчики  
-const popupProfileForm = new PopupWithForm(popupProfile, {
+const popupProfileForm = new PopupWithForm('.popup_type_edit', {
   handleFormSubmit: (data) => {
     userInfo.setUserInfo(data)
   }
@@ -83,7 +75,7 @@ editButton.addEventListener('click', () => {
   profileJobInput.value = data.job;
 })
 //Принимаем класс попапа формы добавления карточки  и вкл обработчики 
-const popupNewCardForm = new PopupWithForm(popupNewCard, {
+const popupNewCardForm = new PopupWithForm('.popup_type_new-card', {
   handleFormSubmit: (data) => {
     cardsContainer.addNewItem(createCard(data))
   }
@@ -97,7 +89,7 @@ addButton.addEventListener('click', () => {
 })
 
 //Принимаем класс попапа формы аватарки  и вкл обработчики 
-const popupAvatarForm = new PopupWithForm(popupAvatar, {
+const popupAvatarForm = new PopupWithForm('.popup_type_avatar', {
   handleFormSubmit: (data) => {
     userInfo.setUserAvatar(data)
   }
