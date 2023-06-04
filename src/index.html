@@ -62,7 +62,7 @@
                         name="name" placeholder="Имя" minlength="2" maxlength="40" />
                     <span class="popup__input-error" id="input-name-error"></span>
                     <input id="input-job" class="popup__input popup__input_type_profile-job" required type="text"
-                        name="job" placeholder="О себе" minlength="2" maxlength="200" />
+                        name="about" placeholder="О себе" minlength="2" maxlength="200" />
                     <span class="popup__input-error" id="input-job-error"></span>
                     <button class="popup__button" type="submit" disabled>Сохранить</button>
                 </form>
@@ -122,9 +122,9 @@
                 <h2 class="popup__title">Обновить аватар</h2>
                 <form class="popup__form popup__form_type_avatar" name="popupFormAvatar" novalidate>
                     <input id="input-avatar-link" class="popup__input  popup__input_type_avatar-link" required
-                        type="url" name="avatarLink" placeholder="Добавьте ссылку на аватар" />
+                        type="url" name="avatar" placeholder="Добавьте ссылку на аватар" />
                     <span class="popup__input-error" id="input-avatar-link-error"></span>
-                    <button class="popup__button" type="submit">Да</button>
+                    <button class="popup__button" type="submit">Сохранить</button>
                 </form>
                 <button class="popup__close" type="button" aria-label="Закрыть окно"></button>
             </div>
@@ -135,7 +135,7 @@
         <section class="popup popup_type_submit-delete">
             <div class="popup__container">
                 <h2 class="popup__title">Вы уверены?</h2>
-                <form class="popup__form" name="popupFormSubmitDelete" novalidate>
+                <form class="popup__form popup__from_type_delete" name="popupFormSubmitDelete" novalidate>
                     <button class="popup__button" type="submit">Да</button>
                 </form>
                 <button class="popup__close" type="button" aria-label="Закрыть окно"></button>

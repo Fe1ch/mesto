@@ -1,24 +1,24 @@
 export class UserInfo {
-  constructor({ selectorUserName, selectorUserJob, selectorUserAvatar }) {
+  constructor({ selectorUserName, selectorUserAbout, selectorUserAvatar }) {
     this._profileName = document.querySelector(selectorUserName);
-    this._profileJob = document.querySelector(selectorUserJob);
+    this._profileAbout = document.querySelector(selectorUserAbout);
     this._profileAvatar = document.querySelector(selectorUserAvatar);
   }
 
   getUserInfo() {
     return {
       name: this._profileName.textContent,
-      job: this._profileJob.textContent
+      about: this._profileAbout.textContent
     }
   }
 
-  setUserInfo({ name, job }) {
+  setUserInfo({ name, about }) {
     this._profileName.textContent = name;
-    this._profileJob.textContent = job;
+    this._profileAbout.textContent = about;
 
   }
 
-  setUserAvatar({ avatarLink }) {
-    this._profileAvatar.src = avatarLink;
+  setUserAvatar({ avatar }) {
+    this._profileAvatar.src = avatar;
   }
 }
