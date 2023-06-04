@@ -42,33 +42,39 @@ export class Card {
       this._deleteButtonElement.remove();
     }
 
-    if (this._likes.some((like) => like._id === this._userId)) {
+    if (this.isLiked()) {
       this._likeElement.classList.add("element__like_active");
     }
-
 
     return this._element;
   }
 
+
+
   isLiked() {
-    if (this._likeElement.classList.contains('element__like_active')) {
-      return true
-    } else {
-      return false
-    }
+    return this._likes.some((like) => like._id === this._userId)
   }
 
-  toggleLikeCard(data) {
+  getId() {
+    return this._cardId
+  }
+
+  deleteCard() {
+    this._element.remove();
+  }
+
+  updateLikes(likes) {
     this._likeElement.classList.toggle('element__like_active');
-    this._likeCounterElement.textContent = data.likes.length;
+    this._likeCounterElement.textContent = likes.length;
+    this._likes = likes;
   }
 
   _setEventListeners() {
     this._likeElement.addEventListener('click', () => {
-      this._handleLikeClick(this._cardId, this.isLiked())
+      this._handleLikeClick()
     });
     this._deleteButtonElement.addEventListener('click', () => {
-      this._handleDeleteClick(this._cardId, this._element)
+      this._handleDeleteClick()
     });
     this._photoElement.addEventListener('click', () => {
       this._handleCardClick(this._name, this._link);

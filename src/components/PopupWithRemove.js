@@ -7,15 +7,15 @@ export class PopupWithRemove extends Popup {
   }
 
 
-  handleDeleteCard(handleDelete) {
-    this._formSubmit = handleDelete;
+  setCallback(handleDelete) {
+    this._handleSubmit = handleDelete;
   }
 
   setEventListeners() {
     super.setEventListeners();
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      this._formSubmit();
+      this._handleSubmit();
     });
   }
 }

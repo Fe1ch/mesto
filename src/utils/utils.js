@@ -1,8 +1,4 @@
-export function requestLoading(form, isLoading, text) {
+export function setSubmitButtonText(form, text) {
   const button = form.querySelector('.popup__button')
-  if (isLoading) {
-    button.textContent = text;
-  } else {
-    button.textContent = text;
-  }
+  button.textContent = text;
 }
